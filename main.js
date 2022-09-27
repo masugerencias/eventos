@@ -19,3 +19,7 @@ if(posicionObj1 < tamanoPantalla) {
 
 
 })
+
+
+
+

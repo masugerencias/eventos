@@ -47,3 +47,84 @@ opacity: 0;
     }
 
 }
+
+
+/* AQUI EMPIEZA EL CUBO */
+/* Simplemente hacemos que en el hover del hijo llamado CHILD.
+Las dimensiones del hijo son las dadas por el color con respecto a su padre, la mitad de todo.
+Para el hover se accede al hijo y se le pone su hover */
+.cubos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+/* CUBO 1 CON TRANSITION */
+.parent{
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+}
+
+.child{
+    background-color: red;
+    height: 50%;
+    width: 50%;
+    transition: transform 1s;
+    /* La transicion se pone en el hijo porque sino, se quitaria de gople si estuviera en el padre.  */
+}
+
+.parent:hover .child{
+    transform:translateX(100%) ;
+    border-radius: 30px;
+    /*El hover es aqí en el padre. 
+    Con esto hacemos que se desplaze por el eje x el 100% de su tamaño */
+}
+
+/* CUBO2 CON ANIMATION */
+
+.parent1{
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+}
+
+.child1{
+    background-color: red;
+    height: 50%;
+    width: 50%;
+    transition: transform 1s;
+    /* La transicion se pone en el hijo porque sino, se quitaria de gople si estuviera en el padre.  */
+}
+
+.parent1:hover .child1{
+    animation: derechaAIzq 1s ease-in forwards 3 alternate 1s;
+    
+    /*Con ANIMATION tenemos que ponerle un nombre, una duracion y algun efecto como ease-in.
+    NEcesariamente se requiere un KEYFRAMES, si no se pone from o 0%, toma los valores por defecto de la clase. 
+    IMPORTANTE: forwards : after my animation is done, keep all my props at the 100% keyframe. 
+    Con BACKWARDS before  my animation stars, apply all my props at the 0% keyframe.
+    
+    El ultimo numero 3 es las veces en la que se repite la animacion.*/
+}
+
+@keyframes derechaAIzq {
+    0%{
+        transform: translateX(0);
+
+    }
+    33%{
+        transform: translateY(100%);
+
+    }
+    65%{
+        transform: translateX(100%) translateY(100%);
+
+    }
+
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+/* Si quisiera ponerlo constantemente sería quiatando el hover y poniendo la animacion eenel child. */

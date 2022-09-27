@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 400px;
+}
+
+@keyframes mover{
+    0%{
+        /* transform: translate(100%) */
+        transform: rotate(0.5turn);
+    }
+}
+
+
+/* Pero por lo general en KeyFrames siempre hay que tener el 0% al 100%, el from y el TO.
+Si se pone en porcentajes puede ser todo mas gradual, en vez de 0 y 100, podemos poner de 10 en 10, son mas posiciones en la anumacion. */
+
+
+/* UNA NUEVA QUE VENGA DESDE ALGUN LADO slide in */
+
+
+
+.circulo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: crimson;
+    animation:slide-in 1s ease;
+}
+
+
+@keyframes slide-in{
+/* ponemos el from */
+from{
+    transform: translateX(100vh); 
+    /* trasladamos en el ejeX la mitad de la pantalla el objeto.*/
+opacity: 0;
+/* ponemos que salga de la nada! (totalmente transparente) */
+}
+    to{
+        transform: translateX(0vh); 
+
+    }
+
+}
